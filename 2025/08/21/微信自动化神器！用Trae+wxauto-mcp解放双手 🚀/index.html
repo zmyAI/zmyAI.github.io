@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.24.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="微信自动化神器！用Trae+wxauto-mcp解放双手 🚀 你是否想象过，微信消息能自动收发？多个账号能一键管理？今天要给大家介绍的wxauto-mcp，就是这样一个能让微信自动化的神奇工具！它基于wxauto库开发，相当于给微信装了个「智能小助手」，帮你处理消息、节省时间～ ✨ 注意：这个工具目前只支持Windows系统，而且对微信版本有要求哦（往下看有详细说明） 适用环境表 🔍    软">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信自动化神器！用Trae+wxauto-mcp解放双手 🚀">
+<meta property="og:url" content="http://example.com/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="微信自动化神器！用Trae+wxauto-mcp解放双手 🚀 你是否想象过，微信消息能自动收发？多个账号能一键管理？今天要给大家介绍的wxauto-mcp，就是这样一个能让微信自动化的神奇工具！它基于wxauto库开发，相当于给微信装了个「智能小助手」，帮你处理消息、节省时间～ ✨ 注意：这个工具目前只支持Windows系统，而且对微信版本有要求哦（往下看有详细说明） 适用环境表 🔍    软">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C.png">
+<meta property="og:image" content="http://example.com/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/%E9%80%89%E6%8B%A9MCP.png">
+<meta property="og:image" content="http://example.com/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/%E6%B7%BB%E5%8A%A0MCP.png">
+<meta property="og:image" content="http://example.com/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/%E6%89%93%E5%BC%80%E5%8E%9F%E5%A7%8B%E9%85%8D%E7%BD%AE.png">
+<meta property="article:published_time" content="2025-08-21T04:14:00.000Z">
+<meta property="article:modified_time" content="2025-08-21T04:23:12.463Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C.png">
+
+
+<link rel="canonical" href="http://example.com/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/","path":"2025/08/21/微信自动化神器！用Trae+wxauto-mcp解放双手 🚀/","title":"微信自动化神器！用Trae+wxauto-mcp解放双手 🚀"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>微信自动化神器！用Trae+wxauto-mcp解放双手 🚀 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">微信自动化神器！用Trae+wxauto-mcp解放双手 🚀</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E7%8E%AF%E5%A2%83%E8%A1%A8-%F0%9F%94%8D"><span class="nav-number">1.1.</span> <span class="nav-text">适用环境表 🔍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E7%9C%8B%E6%95%88%E6%9E%9C%EF%BC%81%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90-%F0%9F%8C%B0"><span class="nav-number">1.2.</span> <span class="nav-text">先看效果！举个栗子 🌰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%AD%A5%E4%B8%8A%E6%89%8B%E6%8C%87%E5%8D%97-%F0%9F%93%9D"><span class="nav-number">1.3.</span> <span class="nav-text">三步上手指南 📝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%AE%89%E8%A3%85uv%E5%B7%A5%E5%85%B7"><span class="nav-number">1.3.1.</span> <span class="nav-text">第一步：安装uv工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E9%85%8D%E7%BD%AEwxauto-mcp"><span class="nav-number">1.3.2.</span> <span class="nav-text">第二步：配置wxauto-mcp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E5%9C%A8Trae%E4%B8%AD%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.3.3.</span> <span class="nav-text">第三步：在Trae中设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E5%A4%A7%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD-%F0%9F%8C%9F"><span class="nav-number">1.4.</span> <span class="nav-text">两大核心功能 🌟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%EF%BC%88send-message%EF%BC%89"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 发送消息（send_message）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95%EF%BC%88get-all-messages%EF%BC%89"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 获取聊天记录（get_all_messages）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E6%8F%90%E7%A4%BA-%F0%9F%92%A1"><span class="nav-number">1.5.</span> <span class="nav-text">小提示 💡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E8%A6%81%E6%8F%90%E9%86%92-%F0%9F%94%94"><span class="nav-number">1.6.</span> <span class="nav-text">重要提醒 🔔</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="微信自动化神器！用Trae+wxauto-mcp解放双手 🚀 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微信自动化神器！用Trae+wxauto-mcp解放双手 🚀
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-08-21 12:14:00 / Modified: 12:23:12" itemprop="dateCreated datePublished" datetime="2025-08-21T12:14:00+08:00">2025-08-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1>微信自动化神器！用Trae+wxauto-mcp解放双手 🚀</h1>
+<p>你是否想象过，微信消息能自动收发？多个账号能一键管理？今天要给大家介绍的<strong>wxauto-mcp</strong>，就是这样一个能让微信自动化的神奇工具！它基于wxauto库开发，相当于给微信装了个「智能小助手」，帮你处理消息、节省时间～</p>
+<p>✨ <strong>注意</strong>：这个工具目前只支持Windows系统，而且对微信版本有要求哦（往下看有详细说明）</p>
+<h2 id="适用环境表-🔍">适用环境表 🔍</h2>
+<table>
+<thead>
+<tr>
+<th>软件</th>
+<th>支持版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>3.9到3.12</td>
+</tr>
+<tr>
+<td>操作系统</td>
+<td>Windows10以上，Server2016以上</td>
+</tr>
+<tr>
+<td>微信</td>
+<td>3.9.8及以上（4.0版本暂不支持）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="先看效果！举个栗子-🌰">先看效果！举个栗子 🌰</h2>
+<p>配置好之后，只需给Trae下指令，就能让wxauto-mcp帮你处理各种任务～比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请用wxauto-mcp总结我和小明今天的聊天内容，生成工作日报，然后发给文件传输助手。</span><br></pre></td></tr></table></figure>
+<p><a href="./%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C.png">查看效果</a></p>
+<img src="/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/%E6%9F%A5%E7%9C%8B%E6%95%88%E6%9E%9C.png" class="" title="查看效果">
+<p>是不是超方便？再也不用手动翻聊天记录写日报啦！</p>
+<h2 id="三步上手指南-📝">三步上手指南 📝</h2>
+<h3 id="第一步：安装uv工具">第一步：安装uv工具</h3>
+<p>uv是个超级好用的Python包管理工具，比pip更快更稳定～</p>
+<ol>
+<li class="lvl-3">
+<p>打开终端，输入这两行命令安装uv：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br><span class="line">python -m pip install uv</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li class="lvl-3">
+<p>安装完成后，验证一下：</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv --version</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li class="lvl-3">
+<p>如果看到类似「uv 0.8.12 (36151df0e 2025-08-18)」这样的版本信息，就说明安装成功啦！</p>
+</li>
+</ol>
+<h3 id="第二步：配置wxauto-mcp">第二步：配置wxauto-mcp</h3>
+<p>接下来我们需要获取wxauto-mcp的代码并配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/barantt/wxauto-mcp.git</span><br><span class="line">cd wxauto-mcp</span><br><span class="line">uv sync</span><br></pre></td></tr></table></figure>
+<p>这三步命令会帮你下载代码、进入目录、安装依赖，超简单～</p>
+<h3 id="第三步：在Trae中设置">第三步：在Trae中设置</h3>
+<ol>
+<li class="lvl-3">
+<p>打开Trae，点击侧边对话框右上角的「AI功能管理」，选择「MCP」</p>
+</li>
+</ol>
+<p><a href="./%E9%80%89%E6%8B%A9MCP.png">选择MCP</a></p>
+<img src="/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/%E9%80%89%E6%8B%A9MCP.png" class="" title="选择MCP">
+<ol start="2">
+<li class="lvl-3">
+<p>点击「添加」→「手动添加」</p>
+</li>
+</ol>
+<p><a href="./%E6%B7%BB%E5%8A%A0MCP.png">添加MCP</a></p>
+<img src="/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/%E6%B7%BB%E5%8A%A0MCP.png" class="" title="添加MCP">
+<ol start="3">
+<li class="lvl-3">
+<p>打开「原始配置（JSON）」</p>
+</li>
+</ol>
+<p><a href="./%E6%89%93%E5%BC%80%E5%8E%9F%E5%A7%8B%E9%85%8D%E7%BD%AE.png">打开原始配置</a></p>
+<img src="/2025/08/21/%E5%BE%AE%E4%BF%A1%E8%87%AA%E5%8A%A8%E5%8C%96%E7%A5%9E%E5%99%A8%EF%BC%81%E7%94%A8Trae+wxauto-mcp%E8%A7%A3%E6%94%BE%E5%8F%8C%E6%89%8B%20%F0%9F%9A%80/%E6%89%93%E5%BC%80%E5%8E%9F%E5%A7%8B%E9%85%8D%E7%BD%AE.png" class="" title="打开原始配置">
+<ol start="4">
+<li class="lvl-3">
+<p>复制下面的配置，注意把<code>path\to\wxauto-mcp</code>改成你刚才下载代码的实际路径哦！</p>
+</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;mcpServers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;wxauto-mcp&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;uv&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;--directory&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;path\\to\\wxauto-mcp&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;run&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;wxauto_mcp.py&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="两大核心功能-🌟">两大核心功能 🌟</h2>
+<h3 id="1-发送消息（send-message）">1. 发送消息（send_message）</h3>
+<p>向指定联系人或群组发消息，支持@功能～</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>必填参数</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-4">msg: 要发送的内容</li>
+<li class="lvl-4">to: 接收人的名称（联系人或群组）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>选填参数</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-4">at: 在群里@的人</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>举个例子</strong>：<code>send_message(&quot;文件传输助手&quot;, &quot;这是一条测试消息&quot;)</code></p>
+</li>
+</ul>
+<h3 id="2-获取聊天记录（get-all-messages）">2. 获取聊天记录（get_all_messages）</h3>
+<p>获取与指定联系人或群组的聊天记录～</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>必填参数</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-4">who: 联系人或群组名称</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>选填参数</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-4">load_more: 是否加载更多历史消息（默认不加载）</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>返回值</strong>：消息列表，每条包含发送者和内容</p>
+</li>
+<li class="lvl-2">
+<p><strong>举个例子</strong>：<code>get_all_messages(&quot;文件传输助手&quot;)</code></p>
+</li>
+</ul>
+<h2 id="小提示-💡">小提示 💡</h2>
+<ol>
+<li class="lvl-3">
+<p>首次使用前，记得先登录微信电脑版</p>
+</li>
+<li class="lvl-3">
+<p>确保微信版本符合要求，不然可能会出错哦</p>
+</li>
+<li class="lvl-3">
+<p>如果遇到问题，可以查看项目的GitHub主页寻求帮助</p>
+</li>
+</ol>
+<h2 id="重要提醒-🔔">重要提醒 🔔</h2>
+<ol>
+<li class="lvl-3">
+<p>使用自动化工具时请控制调用频率，避免频繁操作导致微信账号被限制或封禁哦～</p>
+</li>
+<li class="lvl-3">
+<p>建议使用专门的工作号进行自动化操作，尽量避免使用个人常用账号，这样即使出现问题也不会影响日常生活～</p>
+</li>
+</ol>
+<p>有了wxauto-mcp，微信自动化就变得超级简单啦！无论是管理多个账号，还是定时发送消息，都能轻松搞定～快试试吧！✨</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/08/18/trae-plugin/" rel="prev" title="零基础用Trae开发VS Code插件，其实很简单">
+                  <i class="fa fa-angle-left"></i> 零基础用Trae开发VS Code插件，其实很简单
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
